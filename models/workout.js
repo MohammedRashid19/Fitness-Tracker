@@ -5,21 +5,22 @@ const Schema = mongoose.Schema;
 // day
 // exercises
 const workoutSchema = new Schema({
-  name: {
-    type: String,
-    trim: true,
-    required: "Enter a name for transaction"
-  },
-  value: {
-    type: Number,
-    required: "Enter an amount"
-  },
-  date: {
+
+  day: {
     type: Date,
     default: Date.now
-  }
+  },
+
+  exercises: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Exercise"
+    }
+  ],
+
+  totalDuration: Number
 });
 
-const Transaction = mongoose.model("Transaction", transactionSchema);
+const Workout = mongoose.model("Workout", workoutSchema);
 
-module.exports = Transaction;
+module.exports = Workout;
