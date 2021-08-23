@@ -1,27 +1,35 @@
+// function for calculating total weights for last 7 days of workouts
 function calculateTotalWeight(data) {
+  // create empty array to push weights to
   const totals = [];
 
+  // for each workout in last 7 days...
   data.forEach((workout) => {
+    // use reduce method to 
     const workoutTotal = workout.exercises.reduce((total, { type, weight }) => {
+      // sum of total weights from each resistance workout
       if (type === 'resistance') {
         return total + weight;
       }
+      // but not for cardio workouts (default 0)
       return total;
     }, 0);
-
+    // push the total weights for each workout from the past 7 days into the "totals" array
     totals.push(workoutTotal);
   });
-
+  // return the array of total weights for the past 7 days of workouts
   return totals;
 }
 
+// function to create charts for page using database data of last 7 days of workouts
 function populateChart(data) {
+  // variables for workout durations and weights
   const durations = data.map(({ totalDuration }) => totalDuration);
   const pounds = calculateTotalWeight(data);
-
+  // select html elements for charts
   const line = document.querySelector('#canvas').getContext('2d');
   const bar = document.querySelector('#canvas2').getContext('2d');
-
+  // labels for the chart (the last 7 days)
   const labels = data.map(({ day }) => {
     const date = new Date(day);
 
@@ -33,15 +41,18 @@ function populateChart(data) {
     }).format(date);
   });
 
+  // Creating duration chart for last 7 days
   let lineChart = new Chart(line, {
     type: 'line',
     data: {
+      // using formatted day labels
       labels,
       datasets: [
         {
           label: 'Workout Duration In Minutes',
           backgroundColor: 'red',
           borderColor: 'red',
+          // duration data pulled from database
           data: durations,
           fill: false,
         },
@@ -61,6 +72,7 @@ function populateChart(data) {
     },
   });
 
+  // Creating bar chart for total weights over last 7 days
   let barChart = new Chart(bar, {
     type: 'bar',
     data: {
@@ -68,6 +80,7 @@ function populateChart(data) {
       datasets: [
         {
           label: 'Pounds',
+          // use total weight data pulled and summed from database
           data: pounds,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -108,4 +121,5 @@ function populateChart(data) {
 }
 
 // get all workout data from back-end
+// and use data to create chart
 API.getWorkoutsInRange().then(populateChart);
