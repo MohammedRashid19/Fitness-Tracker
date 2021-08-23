@@ -14,6 +14,8 @@ async function initWorkout() {
       date: formatDate(lastWorkout.day),
       totalDuration: lastWorkout.totalDuration,
       numExercises: lastWorkout.exercises.length,
+      // this will render total weights, sets, and reps for resistance
+      // or total distance for cardio
       ...tallyExercises(lastWorkout.exercises)
     };
 
@@ -24,7 +26,7 @@ async function initWorkout() {
   }
 }
 
-// function to add up exercises stats
+// function to add up exercise stats to display in workout summary
 function tallyExercises(exercises) {
   const tallied = exercises.reduce((acc, curr) => {
     // If exercises are resistance ones, use accumulator to add up weights, sets, and reps
