@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 // day
 // exercises
-const workoutSchema = new Schema({
+const WorkoutSchema = new Schema({
 
   day: {
     type: Date,
@@ -18,9 +18,14 @@ const workoutSchema = new Schema({
     }
   ],
 
-  totalDuration: Number
+  // totalDuration: Number
 });
 
-const Workout = mongoose.model("Workout", workoutSchema);
+// WorkoutSchema.methods.setTotalDuration = function() {
+//   this.fullName = `${this.firstName} ${this.lastName}`;
+//   return this.fullName;
+// };
+
+const Workout = mongoose.model("Workout", WorkoutSchema);
 
 module.exports = Workout;
