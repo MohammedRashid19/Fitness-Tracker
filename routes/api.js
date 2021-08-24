@@ -22,11 +22,21 @@ const db = require('../models');
 //     });
 // });
 
+// GET ROUTE FOR RENDERING ALL WORKOUTS
+// SHOWING TOTAL DURATION OF ALL EXERCISES
 router.get("/api/workouts", (req, res) => {
-  db.Workout.find({})
-    // .sort({ date: -1 })
-    // .populate("exercises")
+  // USE AGGREGATE TO SUM UP DURATION OF ALL EXERCISES FOR EACH WORKOUT
+  db.Workout.aggregate( [
+    {
+      $addFields: {
+        totalDuration: { $sum: "$exercises.duration" } 
+      }
+    },
+  ] )
+    // 
+    .sort({ date: -1 })
     .then(dbWorkout => {
+      // console.log(dbWorkout[0].exercises[0].duration);
       res.json(dbWorkout);
     })
     .catch(err => {
