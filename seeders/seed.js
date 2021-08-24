@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const db = require('../models');
+// const Workout = require('../models/Workout')
+// const Exercise = require('../models/Exercise')
 
 mongoose.connect('mongodb://localhost/workout', {
   useNewUrlParser: true,
@@ -135,3 +137,5 @@ db.Workout.deleteMany({})
     console.error(err);
     process.exit(1);
   });
+
+workoutSeed.forEach((workout) => console.log(workout))

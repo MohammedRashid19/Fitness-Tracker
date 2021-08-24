@@ -13,18 +13,35 @@ const WorkoutSchema = new Schema({
 
   exercises: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Exercise"
+      type: {
+        type: String,
+        trim: true,
+        required: "Enter an exercise type"
+      },
+      name: {
+          type: String,
+          trim: true,
+          required: "Enter a name for the exercise"
+      },
+      duration: {
+          type: Number,
+          required: "Enter an exercise duration (in minutes)"
+      },
+      weight: {
+          type: Number,
+      },
+      reps: {
+          type: Number,
+      },
+      sets: {
+          type: Number,
+      },
+      distance: {
+          type: Number,
+      },
     }
   ],
-
-  // totalDuration: Number
 });
-
-// WorkoutSchema.methods.setTotalDuration = function() {
-//   this.fullName = `${this.firstName} ${this.lastName}`;
-//   return this.fullName;
-// };
 
 const Workout = mongoose.model("Workout", WorkoutSchema);
 

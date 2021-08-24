@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const {Workout, Exercise} = require("../models");
+const mongoose = require('mongoose');
+const db = require('../models');
 
 // router.post("/api/transaction", ({ body }, res) => {
 //   Transaction.create(body)
@@ -22,9 +23,9 @@ const {Workout, Exercise} = require("../models");
 // });
 
 router.get("/api/workouts", (req, res) => {
-  Workout.find({})
-    .sort({ date: -1 })
-    .populate("exercises")
+  db.Workout.find({})
+    // .sort({ date: -1 })
+    // .populate("exercises")
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
