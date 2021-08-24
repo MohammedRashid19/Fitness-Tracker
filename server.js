@@ -13,8 +13,10 @@ app.use(express.static("public"));
 await mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost/workout',
   {
-    useNewUrlParser: true,
-    useFindAndModify: false
+    useNewUrlParser:true,
+    useCreateIndex:true,
+    useFindAndModify:true,
+    useUnifiedTopology: true
   }
 );
 
