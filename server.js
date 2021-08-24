@@ -10,12 +10,12 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-await mongoose.connect(
+mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost/workout',
   {
     useNewUrlParser:true,
     useCreateIndex:true,
-    useFindAndModify:true,
+    useFindAndModify:false,
     useUnifiedTopology: true
   }
 );
