@@ -1,14 +1,13 @@
+// BRINGING IN REQUIRED MODULES
 const router = require("express").Router();
 const mongoose = require('mongoose');
-// const Workout = require('../models/workout.js');
 const db = require('../models')
 const path = require('path');
 
-// GET ROUTE FOR RENDERING ALL WORKOUTS
-// SHOWING TOTAL DURATION OF ALL EXERCISES
+// GET ROUTE FOR RENDERING ALL WORKOUTS, SHOWING TOTAL DURATION OF EXERCISES
 router.get("/api/workouts", (req, res) => {
-  // USE AGGREGATE TO SUM UP DURATION OF ALL EXERCISES FOR EACH WORKOUT
-  // AND SET TO NEW PROPERTY OF TOTALDURATION
+  // Use aggregate to sum up duration of all exercises for each workout
+  // and set the sum to a new field called totalDuration for each workout
   db.Workout.aggregate( [
     {
       $addFields: {
@@ -16,7 +15,7 @@ router.get("/api/workouts", (req, res) => {
       }
     },
   ] )
-    // Descending order - newest workouts to oldest
+    // Ascending order - oldest workouts to newest (because grabbing last index later)
     .sort({ day: 1 })
     .then(dbWorkout => {
       res.json(dbWorkout);
@@ -87,4 +86,5 @@ router.get("/api/workouts/range", (req, res) => {
   })
 });
 
+// EXPORT ROUTES
 module.exports = router;
