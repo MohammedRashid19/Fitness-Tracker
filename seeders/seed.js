@@ -1,12 +1,7 @@
 const mongoose = require('mongoose');
 const db = require('../models');
 
-// mongoose.connect('mongodb://localhost/workout', {
-//   useNewUrlParser: true,
-//   useFindAndModify: false,
-//   useUnifiedTopology: true,
-// });
-// ADDING ASYNC AWAIT FOR DATABASE CONNECTION
+// ASYNC AWAIT FOR DATABASE CONNECTION
 // CONSULTED CODE HERE: https://stackoverflow.com/questions/54890608/how-to-use-async-await-with-mongoose
 const connectDb = async () => {
   await mongoose.connect(
@@ -25,9 +20,10 @@ const connectDb = async () => {
     console.log(err)
   })
 }
-
+// CONNECT TO MONGOOSE DATABASE AND CATCH & CONSOLE LOG ERROR IF NOT
 connectDb().catch(err => console.log(err))
 
+// WORKOUTS W/ EXERCISES TO SEED DATABASE
 const workoutSeed = [
   {
     day: new Date(new Date().setDate(new Date().getDate() - 9)),
@@ -146,6 +142,7 @@ const workoutSeed = [
   },
 ];
 
+// CLEAR WORKOUT COLLECTION THEN ADD THE WORKOUT SEED DATA
 db.Workout.deleteMany({})
   .then(() => db.Workout.collection.insertMany(workoutSeed))
   .then((data) => {
