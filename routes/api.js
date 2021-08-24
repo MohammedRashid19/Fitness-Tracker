@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const mongoose = require('mongoose');
-const db = require('../models');
+const Workout = require('../models/Workout');
 const path = require('path');
 
 // GET ROUTE FOR RENDERING ALL WORKOUTS
@@ -8,7 +8,7 @@ const path = require('path');
 router.get("/api/workouts", (req, res) => {
   // USE AGGREGATE TO SUM UP DURATION OF ALL EXERCISES FOR EACH WORKOUT
   // AND SET TO NEW PROPERTY OF TOTALDURATION
-  db.Workout.aggregate( [
+  Workout.aggregate( [
     {
       $addFields: {
         totalDuration: { $sum: "$exercises.duration" } 
@@ -33,7 +33,7 @@ router.get("/exercise", (req, res) => {
 // POST ROUTE FOR CREATING A NEW WORKOUT
 router.post("/api/workouts", ( req, res) => {
   // Create a new workout document in the database
-  db.Workout.create(req.body)
+  Workout.create(req.body)
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
@@ -45,7 +45,7 @@ router.post("/api/workouts", ( req, res) => {
 // PUT ROUTE FOR UPDATING A WORKOUT WITH NEW EXERCISES
 router.put("/api/workouts/:id", ( req, res) => {
   // Find a workout document by id and add the new exercise to the array of exercises
-  db.Workout.findOneAndUpdate({ _id: req.params.id }, { $push: { exercises: req.body } })
+  Workout.findOneAndUpdate({ _id: req.params.id }, { $push: { exercises: req.body } })
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
@@ -68,7 +68,7 @@ router.get("/api/workouts/range", (req, res) => {
 
   // Use aggregate method to get all workouts, filtered for last 7 days
   // and add a field of totalDuration, summing the exercise durations for each workout
-  db.Workout.aggregate([
+  Workout.aggregate([
     { 
       $match: filter 
     },
