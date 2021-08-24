@@ -1,13 +1,32 @@
 const mongoose = require('mongoose');
 const db = require('../models');
-// const Workout = require('../models/Workout')
-// const Exercise = require('../models/Exercise')
 
-mongoose.connect('mongodb://localhost/workout', {
-  useNewUrlParser: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true,
-});
+// mongoose.connect('mongodb://localhost/workout', {
+//   useNewUrlParser: true,
+//   useFindAndModify: false,
+//   useUnifiedTopology: true,
+// });
+// ADDING ASYNC AWAIT FOR DATABASE CONNECTION
+// CONSULTED CODE HERE: https://stackoverflow.com/questions/54890608/how-to-use-async-await-with-mongoose
+const connectDb = async () => {
+  await mongoose.connect(
+    process.env.MONGODB_URI || 'mongodb://localhost/workout',
+    {
+      useNewUrlParser:true,
+      useCreateIndex:true,
+      useFindAndModify:false,
+      useUnifiedTopology: true 
+    }
+  )
+  .then(() => {
+    console.log("Connected to database!")
+  })
+  .catch(() => {
+    console.log(err)
+  })
+}
+
+connectDb().catch(err => console.log(err))
 
 const workoutSeed = [
   {
