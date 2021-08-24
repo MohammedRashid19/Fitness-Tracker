@@ -1,9 +1,9 @@
+// REQUIRE MONGOOSE MODULE & SCHEMA
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-// day
-// exercises
+// CREATE NEW SCHEMA FOR WORKOUT
 const WorkoutSchema = new Schema({
 
   day: {
@@ -43,6 +43,8 @@ const WorkoutSchema = new Schema({
   ],
 });
 
+// MAKE THE WORKOUT SCHEMA A MONGOOSE MODEL
 const Workout = mongoose.model("Workout", WorkoutSchema);
 
+// EXPORT THE WORKOUT MODEL
 module.exports = Workout;
