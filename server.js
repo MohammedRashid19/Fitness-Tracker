@@ -19,6 +19,8 @@ app.use(express.static("public"));
 //     useUnifiedTopology: true
 //   }
 // );
+// ADDING ASYNC AWAIT FOR DATABASE CONNECTION
+// CONSULTED CODE HERE: https://stackoverflow.com/questions/54890608/how-to-use-async-await-with-mongoose
 const connectDb = async () => {
   await mongoose.connect(
     process.env.MONGODB_URI || 'mongodb://localhost/workout',
