@@ -81,23 +81,23 @@ _If accessing deployed Heroku application..._
 
 _Homepage:_
 
-<img src="https://github.com/merewall/Fitness-Tracker/blob/main/public/images/homepage.PNG" alt="desktop view of fitness tracker homepage" width="600px" height="300px">
+<img src="https://github.com/merewall/Fitness-Tracker/blob/main/public/assets/images/homepage.PNG" alt="desktop view of fitness tracker homepage" width="600px" height="300px">
 
 _Mobile Homepage:_
 
-<img src="https://github.com/merewall/Fitness-Tracker/blob/main/public/images/mobile-homepage.jpg" alt="mobile view of fitness tracker homepage" width="300px" height="500px">
+<img src="https://github.com/merewall/Fitness-Tracker/blob/main/public/assets/images/mobile-homepage.jpg" alt="mobile view of fitness tracker homepage" width="300px" height="500px">
 
 _Add Exercise - Cardio:_
 
-<img src="https://github.com/merewall/Fitness-Tracker/blob/main/public/images/cardio.PNG" alt="desktop view of adding cardio page" width="600px" height="300px">
+<img src="https://github.com/merewall/Fitness-Tracker/blob/main/public/assets/images/cardio.PNG" alt="desktop view of adding cardio page" width="600px" height="300px">
 
 _Add Exercise - Resistance:_
 
-<img src="https://github.com/merewall/Fitness-Tracker/blob/main/public/images/resistance.PNG" alt="desktop view of adding resistance page" width="600px" height="300px">
+<img src="https://github.com/merewall/Fitness-Tracker/blob/main/public/assets/images/resistance.PNG" alt="desktop view of adding resistance page" width="600px" height="300px">
 
 _Dashboard:_
 
-<img src="https://github.com/merewall/Fitness-Tracker/blob/main/public/images/stats.PNG" alt="desktop view of dashboard stats for last 7 days page" width="600px" height="300px">
+<img src="https://github.com/merewall/Fitness-Tracker/blob/main/public/assets/images/stats.PNG" alt="desktop view of dashboard stats for last 7 days page" width="600px" height="300px">
 
 ## LICENSE
 
