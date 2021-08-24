@@ -137,5 +137,3 @@ db.Workout.deleteMany({})
     console.error(err);
     process.exit(1);
   });
-
-workoutSeed.forEach((workout) => console.log(workout))
