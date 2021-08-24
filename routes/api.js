@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const mongoose = require('mongoose');
-const Workout = require('../models/Workout');
+const Workout = require('../models/workout.js');
 const path = require('path');
 
 // GET ROUTE FOR RENDERING ALL WORKOUTS
