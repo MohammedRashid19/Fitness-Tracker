@@ -5,16 +5,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- LINK TO SEMANTIC UI -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+  <!-- LINK TO CSS STYLESHEET -->
   <link rel="stylesheet" href="style.css" />
+  <!-- LINK TO FAVICON -->
+  <link rel="icon" type="image/png" href="../public/favicon.png">
   <title>Fitness Tracker</title>
 </head>
 
 <body>
+  <!-- NAV BAR -->
   <nav>
     <a href="/">Fitness Tracker</a>
     <a href="/stats">Dashboard</a>
   </nav>
+  <!-- MAIN CONTENT -->
   <div class="wrapper workout">
     <header>
       <h1>Fitness Tracker</h1>
@@ -24,6 +30,7 @@
         <div class="prev-workout">
           <h3>Last Workout</h3>
           <div>
+            <!-- WORKOUT STATS RENDER HERE -->
             <div class="workout-stats"></div>
             <div class="buttons">
               <a id="continue-btn" href="/exercise?" class="huge ui blue button">Continue Workout</a>
@@ -31,6 +38,7 @@
             </div>
           </div>
         </div>
+        <!-- IF NO WORKOUTS IN DATABASE, THIS RENDERS -->
         <div class="new-workout">
           <h3>Create Your First Workout</h3>
         </div>
@@ -38,9 +46,11 @@
     </div>
   </div>
   </div>
+  <!-- MODULE TO SHOW WHEN EXERCISES ADDED TO WORKOUT -->
   <div id="toast">
     Workout Added Successfully!
   </div>
+  <!-- JAVASCRIPT FOR APIs, WORKOUT, AND HOMEPAGE -->
   <script src="/api.js"></script>
   <script src="/workout.js"></script>
   <script src="/index.js"></script>

@@ -5,16 +5,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- LINK TO SEMANTIC UI -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+  <!-- LINK TO CSS STYLESHEET -->
   <link rel="stylesheet" href="style.css" />
+  <!-- LINK TO FAVICON -->
+  <link rel="icon" type="image/png" href="../public/favicon.png">
   <title>Fitness Tracker</title>
 </head>
 
 <body>
+  <!-- NAV BAR -->
   <nav>
     <a href="/">Fitness Tracker</a>
     <a href="/stats">Dashboard</a>
   </nav>
+  <!-- MAIN CONTENT -->
   <div class="wrapper">
     <header>
       <h1>Fitness Tracker</h1>
@@ -22,6 +28,7 @@
     <div class="ui container exercise">
       <div class="ui raised card m-auto">
         <h2>Add Your Exercise</h2>
+        <!-- FORM WITH POST METHOD FOR ADDING EXERCISE -->
         <form action="POST">
           <div class="workout-type">
             <label for="type">Exercise Type:</label>
@@ -31,6 +38,7 @@
               <option value="cardio">Cardio</option>
             </select>
           </div>
+          <!-- CARDIO FORM INPUTS -->
           <div class="cardio-form d-none">
             <div class="cardio-name">
               <label for="cardio-name">Name:</label>
@@ -45,6 +53,7 @@
               <input type="number" name="duration" id="duration" placeholder="10" />
             </div>
           </div>
+          <!-- RESISTANCE FORM INPUTS -->
           <div class="resistance-form d-none">
             <div class="exercise">
               <label for="name">Exercise Name:</label>
@@ -67,6 +76,7 @@
               <input type="number" name="resistance-duration" id="resistance-duration" placeholder="10" />
             </div>
           </div>
+          <!-- BUTTONS FOR ADDING MORE EXERCISE OR COMPLETING WORKOUT -->
           <div class="buttons">
             <button disabled class="huge ui blue button complete">
               Complete
@@ -79,9 +89,11 @@
       </div>
     </div>
   </div>
+  <!-- MODULE TO SHOW UPON ADDING EXERCISES TO WORKOUT -->
   <div id="toast">
     Workout Added Successfully!
   </div>
+  <!-- JAVASCRIPT FOR APIs AND EXERCISE PAGE -->
   <script src="/api.js"></script>
   <script src="/exercise.js"></script>
 </body>

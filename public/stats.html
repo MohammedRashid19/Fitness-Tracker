@@ -4,22 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- LINK TO BOOTSTRAP CSS FRAMEWORK -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <!-- LINK TO CSS STYLESHEET -->
     <link rel="stylesheet" href="style.css" />
+    <!-- LINK TO FAVICON -->
+    <link rel="icon" type="image/png" href="../public/favicon.png">
     <title>Fitness Chart</title>
   </head>
+  <!-- NAV BAR -->
   <nav>
     <a href="/">Fitness Tracker</a>
   </nav>
-
+  <!-- MAIN CONTENT -->
   <body>
     <div class="container mt">
       <h1 class="text-center">Workout Dashboard</h1>
+      <!-- STAT CHARTS RENDER HERE -->
       <div class="row mt">
         <div class="col-md-6">
           <canvas id="canvas"></canvas>
@@ -29,7 +35,9 @@
         </div>
       </div>
     </div>
+    <!-- JAVASCRIPT FOR CHART.JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.0/dist/chart.min.js"></script>
+    <!-- JAVASCRIPT FOR APIs AND STATS PAGE -->
     <script src="/api.js"></script>
     <script src="/stats.js"></script>
   </body>
