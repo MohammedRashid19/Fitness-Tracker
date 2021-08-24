@@ -15,7 +15,9 @@ const addButton = document.querySelector("button.add-another");
 const toast = document.querySelector("#toast");
 const newWorkout = document.querySelector(".new-workout")
 
+// Must choose workout type on page load
 let workoutType = null;
+// Disables buttons for form submission until validated
 let shouldNavigateAway = false;
 
 // function for /exercise page load
