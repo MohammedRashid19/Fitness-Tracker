@@ -6,7 +6,7 @@ A fitness tracker app that allows a user to view, create and track daily workout
 
 ## DESCRIPTION
 
-A fitness tracker application that allows a user to view, create, and track daily workouts. A user can log multiple exercises in a workout on a given day and create new workouts. There are fields for tracking the name, exercise type, weight, sets, reps, duration, and distance traveled (if applicable) for each exercise. The user can also view workout stats for the last 7 days, including the total weight lifted and duration of each workout.
+A fitness tracker application that allows a user to view, create, and track daily workouts. A user can log multiple exercises in a workout on a given day and create new workouts. There are fields for tracking the name, exercise type, weight, sets, reps, duration, and distance traveled (if applicable) for each exercise. The user can also view workout stats for the last 7 workouts, including the total weight lifted and duration of each workout.
 
 ## TABLE OF CONTENTS
 

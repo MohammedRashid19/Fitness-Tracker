@@ -59,19 +59,21 @@ router.get("/stats", (req, res) => {
   res.sendFile(path.join(__dirname, '../public/stats.html'));
 });
 
-// GET ROUTE FOR GETTING WORKOUT DATA FOR LAST 7 DAYS
+// GET ROUTE FOR GETTING WORKOUT DATA FOR LAST 7 WORKOUTS
 router.get("/api/workouts/range", (req, res) => {
+  // ORIGINALLY HAD IT FILTERING FOR LAST 7 DAYS - KEEPING CODE FOR REFERENCE
   // set a variable for six days ago (to filter for last 7 days of data, including today)
-  const sixDaysAgo = new Date(new Date().setDate(new Date().getDate() - 7))
+  // const sixDaysAgo = new Date(new Date().setDate(new Date().getDate() - 7))
   // a variable for filtering workouts where the day is greater than the date six days ago
-  const filter = { day: { $gte: sixDaysAgo } };
+  // const filter = { day: { $gte: sixDaysAgo } };
 
   // Use aggregate method to get all workouts, filtered for last 7 days
   // and add a field of totalDuration, summing the exercise durations for each workout
   db.Workout.aggregate([
-    { 
-      $match: filter 
-    },
+    // ORIGINAL METHOD TO FILTER LAST 7 DAYS OF WORKOUTS
+    // { 
+    //   $match: filter 
+    // },
     {
       $addFields: { totalDuration: { $sum: "$exercises.duration" } }
     },
@@ -79,7 +81,9 @@ router.get("/api/workouts/range", (req, res) => {
   // Descending order - newest workouts to oldest
   .sort({ day: -1 })
   .then(workouts => {
-    res.json(workouts);
+    // create a copy of workouts, capturing most recent 7 workouts
+    const lastSevenWorkouts = workouts.slice(0,7)
+    res.json(lastSevenWorkouts);
   })
   .catch(err => {
     res.status(400).json(err);
