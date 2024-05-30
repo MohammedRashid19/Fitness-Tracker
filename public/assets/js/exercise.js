@@ -31,7 +31,7 @@ async function initExercise() {
   }
   // using newly created workout or existing workout, 
   // set url with workout id as search parameter
-  if (workout) {
+  if (workout) { 
     location.search = "?id=" + workout._id;
   }
 
